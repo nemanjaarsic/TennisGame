@@ -227,4 +227,60 @@ public class NumericScores {
 		// Assert
 		assertEquals("Incorrect score when player1 scored three times and player2 scored twice. Players win points alternating.", "40 - 30", score);	
 	}
+	
+	@Test
+	public void test_deuce() throws TennisGameException
+	{
+		TennisGame game = new TennisGame();
+		
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		
+		String score = game.getScore();
+		
+		assertEquals("Invorrect deuce score", "deuce", score);
+	}
+	
+	@Test
+	public void test_advantage1() throws TennisGameException
+	{
+		TennisGame game = new TennisGame();
+		
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		
+		String score = game.getScore();
+		
+		assertEquals("Invorrect advantage score", "advantage igrac 1", score);
+	}
+	
+	@Test
+	public void test_advantage2() throws TennisGameException
+	{
+		TennisGame game = new TennisGame();
+		
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		
+		String score = game.getScore();
+		
+		assertEquals("Invorrect advantage score", "advantage igrac 2", score);
+	}
 }
